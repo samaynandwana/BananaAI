@@ -1,10 +1,19 @@
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Link } from "expo-router";
+import { SafeAreaView, Text } from "react-native";
+import { useNavigation, useRouter } from "expo-router";
 
 export default function Nav() {
+  const router = useRouter();
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView>
-      <Link href="">Home from nav</Link>
+      <Text
+        onPress={() => {
+          navigation.popToTop();
+        }}
+      >
+        Home from nav
+      </Text>
     </SafeAreaView>
   );
 }
