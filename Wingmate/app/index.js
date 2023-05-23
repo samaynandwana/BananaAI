@@ -3,7 +3,8 @@ import { useDeviceContext } from 'twrnc';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
 import tw from 'twrnc';
-import Amplify, { Auth } from '@aws-amplify/core';
+import Amplify from '@aws-amplify/core';
+import { Auth } from 'aws-amplify';
 import config from "../src/aws-exports";
 import { withAuthenticator } from 'aws-amplify-react-native';
 
@@ -13,9 +14,24 @@ Amplify.configure({
     disabled: true,
   },
 });
+Auth.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
+  },
+})
 
 function App() {
   useDeviceContext(tw);
+
+  const signOut = async () => {
+    try {
+      await Auth.signOut({ global: true });
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  };
+
   return (
     <View style={tw.style('h-full')}>
       <LinearGradient
@@ -35,7 +51,7 @@ function App() {
                 <Text style={tw`text-center font-semibold text-lg text-slate-100`}>Login</Text>
               </Pressable>
             </Link>
-            <Pressable style={tw`rounded-full bg-emerald-700 dark:bg-emerald-500 py-3 w-64`}>
+            <Pressable style={tw`rounded-full bg-emerald-700 dark:bg-emerald-500 py-3 w-64`} onPress={() => signOut()}>
               <Text style={tw`text-center font-semibold text-lg text-slate-100`}>Register</Text>
             </Pressable>
           </View>
