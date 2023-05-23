@@ -3,10 +3,18 @@ import { useDeviceContext } from 'twrnc';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
 import tw from 'twrnc';
+import Amplify, { Auth } from '@aws-amplify/core';
+import config from "../src/aws-exports";
+import { withAuthenticator } from 'aws-amplify-react-native';
 
-//import tw from './lib/tailwind';
+Amplify.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
+  },
+});
 
-export default function App() {
+function App() {
   useDeviceContext(tw);
   return (
     <View style={tw.style('h-full')}>
@@ -36,3 +44,5 @@ export default function App() {
     </View>
   );
 }
+
+export default withAuthenticator(App);
