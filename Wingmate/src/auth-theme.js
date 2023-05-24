@@ -10,6 +10,10 @@ const theme = {
   buttonDisabled: {
     ...AmplifyTheme.buttonDisabled,
     ...tw`bg-[#6C5259] rounded-xl`
+  },
+  container: {
+    ...AmplifyTheme.container,
+    ...tw`bg-[#FFF]`
   }
 }
 
