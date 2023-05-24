@@ -1,7 +1,9 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Stack, Tabs, useNavigation } from "expo-router";
+import { withAuthenticator } from "aws-amplify-react-native";
+import theme from '../../../src/auth-theme';
 
-export default function HomeLayout() {
+function HomeLayout() {
   return (
     <SafeAreaProvider>
       <Stack.Screen options={{headerShown: false, gestureEnabled: false}}/>
@@ -12,3 +14,5 @@ export default function HomeLayout() {
     </SafeAreaProvider>
   )
 }
+
+export default withAuthenticator(HomeLayout, {theme: theme});
