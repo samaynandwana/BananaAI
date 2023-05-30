@@ -20,6 +20,7 @@ function Account() {
         Sign out from home in account
       </Text>
       <Link href="/account/nav">Go to nav</Link>
+      <Link href="/account/profile">Go to profile</Link>
     </SafeAreaView>
   );
 }
