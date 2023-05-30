@@ -48,14 +48,14 @@ const styleOne = {
     fontSize: 25,
     color: '#8b0000',
     marginTop: 30,
-  },
+  }
 };
 
 const styleTwo = {
     createBackText: {
       fontSize: 20,
       color: 'black',
-      marginTop: 10
+      marginTop: 0
     }
 }
 
@@ -71,17 +71,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: 'black',
     marginBottom: 16,
     marginTop: 20
   },
   subheading: {
     fontSize: 18,
-    color: '#888',
+    color: '#FFC0CB',
   },
 });
 
