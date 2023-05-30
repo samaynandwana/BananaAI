@@ -1,11 +1,40 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, Button, StyleSheet } from 'react-native';
 
-const Create = () => {
+const ClubCreationPage = () => {
+  const [clubName, setClubName] = useState('');
+  const [clubDescription, setClubDescription] = useState('');
+
+  const handleClubNameChange = (text) => {
+    setClubName(text);
+  };
+
+  const handleClubDescriptionChange = (text) => {
+    setClubDescription(text);
+  };
+
+  const handleCreateClub = () => {
+    console.log('Creating club:', clubName, clubDescription);
+    setClubName('');
+    setClubDescription('');
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Welcome to Our App</Text>
-      <Text style={styles.subheading}>Enjoy your experience!</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Club Name"
+        value={clubName}
+        onChangeText={handleClubNameChange}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Club Description"
+        value={clubDescription}
+        onChangeText={handleClubDescriptionChange}
+        multiline
+      />
+      <Button title="Create Club" onPress={handleCreateClub} />
     </View>
   );
 };
@@ -14,18 +43,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    paddingHorizontal: 16,
   },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  input: {
     marginBottom: 16,
-  },
-  subheading: {
-    fontSize: 18,
-    color: '#888',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
   },
 });
 
-export default Create;
+export default ClubCreationPage;

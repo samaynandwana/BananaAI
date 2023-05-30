@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   subheading: {
-    fontSize: 18,
+    fontSize: 100,
     color: '#FFC0CB',
   },
 });

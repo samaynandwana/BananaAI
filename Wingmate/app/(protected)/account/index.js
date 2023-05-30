@@ -1,8 +1,9 @@
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, StyleSheet, Image, TouchableOpacity, View } from "react-native";
 import { Link, useNavigation, useRouter } from "expo-router";
 import { Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
 import theme from '../../../src/auth-theme';
+import React from 'react';
 
 function Account() {
   const router = useRouter();
