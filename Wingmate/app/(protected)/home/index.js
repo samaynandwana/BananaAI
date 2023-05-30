@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, Text, TouchableOpacity, Image } from "react-native";
-import { useNavigation, useRouter } from "expo-router";
+import { Link, useNavigation, useRouter } from "expo-router";
 import { Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -17,14 +17,6 @@ function Home() {
     Auth.signOut({ global: true });
   };
 
-  const handleCreateClub = () => {
-    router.push('/create');
-  };
-
-  const handleJoinClub = () => {
-    router.push('/join');
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
@@ -36,13 +28,18 @@ function Home() {
             <Image source={logoImage} style={styles.logo} />
           </View>
 
-          <TouchableOpacity style={styles.button} onPress={handleCreateClub}>
-            <Text style={styles.buttonText}>Create Club</Text>
-          </TouchableOpacity>
+          <Link href="/clubs/create" asChild>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Create Club</Text>
+            </TouchableOpacity>
+          </Link>
 
-          <TouchableOpacity style={styles.button} onPress={handleJoinClub}>
-            <Text style={styles.buttonText}>Join Club</Text>
-          </TouchableOpacity>
+          <Link href="/clubs/join" asChild>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Join Club</Text>
+            </TouchableOpacity>
+          </Link>
+
         </View>
       </LinearGradient>
 
