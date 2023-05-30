@@ -1,4 +1,4 @@
-import { SafeAreaView, Text } from "react-native";
+import { View, StyleSheet, SafeAreaView, Text } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
 import { Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
@@ -9,7 +9,7 @@ function Home() {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Text
         style={styleTwo.createBackText}
         onPress={() => {
@@ -35,6 +35,9 @@ function Home() {
       >
         Join Club
       </Text>
+
+      <Text style={styles.heading}>Welcome to Wingmate</Text>
+      <Text style={styles.subheading}>Krishna is a fat monkey!</Text>
     </SafeAreaView>
   );
 }
@@ -63,6 +66,26 @@ const styleThree = {
     marginTop: 0
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    marginTop: 20
+  },
+  subheading: {
+    fontSize: 18,
+    color: '#888',
+  },
+});
+
+
 
 
 
