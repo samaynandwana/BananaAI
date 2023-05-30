@@ -1,9 +1,12 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, SafeAreaView, Text, TouchableOpacity, Image } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
 import { Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 import theme from '../../../src/auth-theme';
+
+import logoImage from './splash1.png';
 
 function Home() {
   const router = useRouter();
@@ -24,19 +27,24 @@ function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.contentContainer}>
-        <Text style={styles.heading}>Welcome to</Text>
-        <Text style={styles.logo}>Wingmate</Text>
-        <Text style={styles.subheading}>Krishna is a FAT FUCK!</Text>
+      <LinearGradient
+        colors={['#FF0000', '#000000']}
+        style={styles.gradientBackground}
+      >
+        <View style={styles.contentContainer}>
+          <View style={styles.logoContainer}>
+            <Image source={logoImage} style={styles.logo} />
+          </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleCreateClub}>
-          <Text style={styles.buttonText}>Create Club</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleCreateClub}>
+            <Text style={styles.buttonText}>Create Club</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={handleJoinClub}>
-          <Text style={styles.buttonText}>Join Club</Text>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity style={styles.button} onPress={handleJoinClub}>
+            <Text style={styles.buttonText}>Join Club</Text>
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
 
       <TouchableOpacity style={styles.signOutButton} onPress={handleSignOut}>
         <Text style={styles.signOutButtonText}>Sign Out</Text>
@@ -50,7 +58,9 @@ export default withAuthenticator(Home, { theme: theme });
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+  },
+  gradientBackground: {
+    flex: 1,
   },
   contentContainer: {
     flex: 1,
@@ -58,22 +68,34 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   heading: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "black",
-    marginBottom: 16,
+    fontSize: 28,
+    fontWeight: "italic",
+    color: "white",
+    marginBottom: 50,
+    //textShadowColor: "rgba(0, 0, 0, 0.75)",
+    //textShadowOffset: { width: 2, height: 2 },
+    //textShadowRadius: 3,
+  },
+  logoContainer: {
+    shadowColor: "black",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 6,
+    elevation: 7,
   },
   logo: {
-    fontSize: 48,
-    fontWeight: "bold",
-    color: "#8b0000",
-    marginBottom: 16,
+    width: 190,
+    height: 98,
+    marginBottom: 100,
   },
   subheading: {
-    fontSize: 20,
-    color: "#FFC0CB",
+    fontSize: 24,
+    color: "white",
     fontStyle: "italic",
     marginBottom: 32,
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 3,
   },
   button: {
     backgroundColor: "#8b0000",
@@ -95,6 +117,6 @@ const styles = StyleSheet.create({
   },
   signOutButtonText: {
     fontSize: 18,
-    color: "#8b0000",
+    color: "white",
   },
 });

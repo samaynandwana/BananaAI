@@ -1,19 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-const LandingPage = () => {
+const Clubs = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.gradientBackground}>
-        <View style={styles.contentContainer}>
-          <Text style={styles.title}>Wingmate Clubs</Text>
-          <Text style={styles.subtitle}>Discover and Join Car Enthusiasts MONKEYS</Text>
-          <Text style={styles.description}>
-            Connect with fellow car lovers, join exciting events, and share your passion for cars!
-          </Text>
+    <SafeAreaView style={styles.container}>
+      <LinearGradient colors={['#7289DA', '#36393F']} style={styles.gradient}>
+        <View style={styles.content}>
+          <View style={styles.logoContainer}>
+            <Image source={'./fisherscc.jpg'} style={styles.logo} />
+          </View>
+          <Text style={styles.title}>Club Events</Text>
+          <Text style={styles.description}>Promotions</Text>
         </View>
-      </View>
-    </View>
+      </LinearGradient>
+    </SafeAreaView>
   );
 };
 
@@ -21,36 +22,42 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  gradientBackground: {
+  gradient: {
     flex: 1,
-    backgroundColor: '#FFF',
   },
-  contentContainer: {
+  content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: 24,
+  },
+  logoContainer: {
+    marginBottom: 32,
+  },
+  logo: {
+    width: 100,
+    height: 60,
+    resizeMode: 'contain',
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: 'black',
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  subtitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'black',
+    color: '#FFFFFF',
     marginBottom: 8,
     textAlign: 'center',
   },
   description: {
-    fontSize: 16,
-    color: 'black',
+    fontSize: 18,
+    color: '#FFFFFF',
     marginBottom: 24,
     textAlign: 'center',
   },
 });
 
-export default LandingPage;
+export default Clubs;
+
+
+
+
+
+
