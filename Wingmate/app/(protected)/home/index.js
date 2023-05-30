@@ -1,4 +1,5 @@
-import { View, StyleSheet, SafeAreaView, Text } from "react-native";
+import React from "react";
+import { View, StyleSheet, SafeAreaView, Text, TouchableOpacity } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
 import { Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
@@ -8,89 +9,92 @@ function Home() {
   const router = useRouter();
   const navigation = useNavigation();
 
+  const handleSignOut = () => {
+    router.push('/sign-out');
+    Auth.signOut({ global: true });
+  };
+
+  const handleCreateClub = () => {
+    router.push('/create');
+  };
+
+  const handleJoinClub = () => {
+    router.push('/join');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text
-        style={styleTwo.createBackText}
-        onPress={() => {
-          router.push('/sign-out');
-          Auth.signOut({global: true});
-        }}
-      >
-        Signout
-      </Text>
-      <Text
-        style={styleOne.createCreateText}
-        onPress={() => {
-          router.push('/create')}
-        }
-      >
-        Create Club
-      </Text>
-      <Text
-        style={styleThree.createJoinText}
-        onPress={() => {
-          router.push('/join')}
-        }
-      >
-        Join Club
-      </Text>
+      <View style={styles.contentContainer}>
+        <Text style={styles.heading}>Welcome to</Text>
+        <Text style={styles.logo}>Wingmate</Text>
+        <Text style={styles.subheading}>Krishna is a FAT FUCK!</Text>
 
-      <Text style={styles.heading}>Welcome to Wingmate</Text>
-      <Text style={styles.subheading}>Krishna is a fat monkey!</Text>
+        <TouchableOpacity style={styles.button} onPress={handleCreateClub}>
+          <Text style={styles.buttonText}>Create Club</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={handleJoinClub}>
+          <Text style={styles.buttonText}>Join Club</Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={styles.signOutButton} onPress={handleSignOut}>
+        <Text style={styles.signOutButtonText}>Sign Out</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
-export default withAuthenticator(Home, {theme: theme});
 
-const styleOne = {
-  createCreateText: {
-    fontSize: 25,
-    color: '#8b0000',
-    marginTop: 30,
-  }
-};
+export default withAuthenticator(Home, { theme: theme });
 
-const styleTwo = {
-    createBackText: {
-      fontSize: 20,
-      color: 'black',
-      marginTop: 0
-    }
-}
-
-const styleThree = {
-  createJoinText: {
-    fontSize: 25,
-    color: '#8b0000',
-    marginTop: 0
-  }
-}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: "white",
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   heading: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: 'black',
+    fontWeight: "bold",
+    color: "black",
     marginBottom: 16,
-    marginTop: 20
+  },
+  logo: {
+    fontSize: 48,
+    fontWeight: "bold",
+    color: "#8b0000",
+    marginBottom: 16,
   },
   subheading: {
-    fontSize: 100,
-    color: '#FFC0CB',
+    fontSize: 20,
+    color: "#FFC0CB",
+    fontStyle: "italic",
+    marginBottom: 32,
+  },
+  button: {
+    backgroundColor: "#8b0000",
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    marginBottom: 16,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: "white",
+    textAlign: "center",
+  },
+  signOutButton: {
+    backgroundColor: "transparent",
+    position: "absolute",
+    bottom: 20,
+    alignSelf: "center",
+  },
+  signOutButtonText: {
+    fontSize: 18,
+    color: "#8b0000",
   },
 });
-
-
-
-
-
-
-
-
-

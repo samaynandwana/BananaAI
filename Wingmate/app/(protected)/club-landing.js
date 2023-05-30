@@ -41,13 +41,13 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     marginBottom: 8,
     textAlign: 'center',
   },
   description: {
     fontSize: 16,
-    color: 'white',
+    color: 'black',
     marginBottom: 24,
     textAlign: 'center',
   },
