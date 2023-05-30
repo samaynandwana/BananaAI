@@ -6,8 +6,6 @@ import { withAuthenticator } from "aws-amplify-react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import theme from '../../../src/auth-theme';
 
-import logoImage from './splash1.png';
-
 function Home() {
   const router = useRouter();
   const navigation = useNavigation();
@@ -25,7 +23,7 @@ function Home() {
       >
         <View style={styles.contentContainer}>
           <View style={styles.logoContainer}>
-            <Image source={logoImage} style={styles.logo} />
+            <Image source={require('../../../assets/splash1.png')} style={styles.logo} />
           </View>
 
           <Link href="/clubs/create" asChild>
