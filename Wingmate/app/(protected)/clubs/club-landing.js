@@ -8,6 +8,9 @@ const Clubs = () => {
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={['#7289DA', '#36393F']} style={styles.gradient}>
+        <View>
+          <Image source={require('../../../assets/maxresdefault.jpg')} style={styles.logo} />
+        </View>
         <View style={styles.content}>
           <Text style={styles.title}>Club Events</Text>
           <Text style={styles.description}>Promotions</Text>
@@ -31,12 +34,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   logoContainer: {
-    marginBottom: 32,
+    shadowColor: "black",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 6,
+    elevation: 7,
   },
   logo: {
-    width: 100,
-    height: 60,
-    resizeMode: 'contain',
+    width: 320,
+    height: 180,
+    marginBottom: 100,
   },
   title: {
     fontSize: 28,

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { withAuthenticator } from "aws-amplify-react-native";
+import theme from '../../../src/auth-theme';
 
 const ClubJoinPage = () => {
   const [clubCode, setClubCode] = useState('');
@@ -40,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ClubJoinPage;
+export default withAuthenticator(ClubJoinPage, {theme: theme});
