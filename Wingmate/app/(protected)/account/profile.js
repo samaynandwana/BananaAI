@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { withAuthenticator } from "aws-amplify-react-native";
+import theme from '../../../src/auth-theme';
 
 const ProfilePage = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -321,4 +323,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfilePage;
+export default withAuthenticator(ProfilePage, {theme: theme});
