@@ -4,8 +4,12 @@ import { Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
 import theme from '../../../src/auth-theme';
 import React from 'react';
+import tw from 'twrnc';
+import { useDeviceContext } from "twrnc";
 
 function Account() {
+  useDeviceContext(tw);
+
   const router = useRouter();
   const navigation = useNavigation();
 
@@ -21,6 +25,9 @@ function Account() {
       </Text>
       <Link href="/account/nav">Go to nav</Link>
       <Link href="/account/profile">Go to profile</Link>
+      <Text style={tw`text-red-500 dark:text-purple-800`}>
+        This text changes based on whether you are in light or dark mode
+      </Text>
     </SafeAreaView>
   );
 }
