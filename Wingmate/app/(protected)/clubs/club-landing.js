@@ -9,9 +9,6 @@ const Clubs = () => {
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={['#7289DA', '#36393F']} style={styles.gradient}>
         <View style={styles.content}>
-          <View style={styles.logoContainer}>
-            <Image source={'./fisherscc.jpg'} style={styles.logo} />
-          </View>
           <Text style={styles.title}>Club Events</Text>
           <Text style={styles.description}>Promotions</Text>
         </View>

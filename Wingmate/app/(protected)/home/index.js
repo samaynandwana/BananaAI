@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     shadowColor: "black",
     shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.7,
     shadowRadius: 6,
     elevation: 7,
   },
