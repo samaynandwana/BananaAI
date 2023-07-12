@@ -5,11 +5,7 @@ import theme from '../../../src/auth-theme';
 
 function HomeLayout() {
   return (
-    <SafeAreaProvider>
-      <Stack.Screen options={{headerShown: false, gestureEnabled: false}}/>
-      <Tabs>
-      </Tabs>
-    </SafeAreaProvider>
+    <Stack />
   )
 }
 

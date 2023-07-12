@@ -8,6 +8,7 @@ function AppLayout() {
     <SafeAreaProvider>
       <Tabs>
         <Tabs.Screen name="home" options={{tabBarLabel: "Home", headerShown: false}}/>
+        <Tabs.Screen name="clubs" options={{tabBarLabel: "Clubs", headerShown: false}}/>
         <Tabs.Screen name="account" options={{tabBarLabel: "Account", headerShown: false}}/>
       </Tabs>
     </SafeAreaProvider>

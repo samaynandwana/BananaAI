@@ -5,13 +5,7 @@ import theme from '../../../src/auth-theme';
 
 function HomeLayout() {
   return (
-    <SafeAreaProvider>
-      <Stack.Screen options={{headerShown: false, gestureEnabled: false}}/>
-      <Tabs>
-        <Tabs.Screen name="index" options={{tabBarLabel: "Home", headerShown: false}}/>
-        <Tabs.Screen name="nav" options={{tabBarLabel: "Navigation", headerShown: false}}/>
-      </Tabs>
-    </SafeAreaProvider>
+    <Stack />
   )
 }
 
