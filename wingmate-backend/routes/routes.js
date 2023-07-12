@@ -44,6 +44,7 @@ router.get('/clubs/:id', (req, res) => {
 router.post('/clubs/create', async (req, res) => {
   const club = new clubModel({
     name: req.body.name,
+    description: req.body.description,
     profilePicture: req.body.profilePicture,
     userList: [{
       user: req.body.user,

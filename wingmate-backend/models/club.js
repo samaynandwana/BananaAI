@@ -7,6 +7,10 @@ const clubSchema = new mongoose.Schema({
     required: true,
     type: String
   },
+  description: {
+    required: true,
+    type: String
+  },
   profilePicture: {
     required: true,
     type: String
@@ -37,7 +41,7 @@ const clubSchema = new mongoose.Schema({
   clubState: {
     required: true,
     type: String,
-    enum: ["Public", "Invite Only", "Private"]
+    enum: ["Public", "Private", "Inactive"]
   },
   events: [{
     required: true,
