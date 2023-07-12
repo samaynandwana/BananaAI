@@ -13,7 +13,7 @@ function Account() {
 
   const router = useRouter();
   const navigation = useNavigation();
-  const ip_address = "<YOUR_IP_ADDRESS_HERE>";
+  const ip_address = "149.162.151.158";
 
   const printToken = async () => {
     const { accessToken: { jwtToken } } = await Auth.currentSession();

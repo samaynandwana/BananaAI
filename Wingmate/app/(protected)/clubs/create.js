@@ -3,20 +3,20 @@ import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 const ClubCreationPage = () => {
   const [clubName, setClubName] = useState('');
-  const [clubDescription, setClubDescription] = useState('');
+  const [clubLocation, setClubLocation] = useState('');
 
   const handleClubNameChange = (text) => {
     setClubName(text);
   };
 
-  const handleClubDescriptionChange = (text) => {
-    setClubDescription(text);
+  const handleClubLocationChange = (text) => {
+    setClubLocation(text);
   };
 
   const handleCreateClub = () => {
-    console.log('Creating club:', clubName, clubDescription);
+    console.log('Creating club:', clubName, clubLocation);
     setClubName('');
-    setClubDescription('');
+    setClubLocation('');
   };
 
   return (
@@ -29,9 +29,9 @@ const ClubCreationPage = () => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Club Description"
-        value={clubDescription}
-        onChangeText={handleClubDescriptionChange}
+        placeholder="Location"
+        value={clubLocation}
+        onChangeText={handleClubLocationChange}
         multiline
       />
       <Button title="Create Club" onPress={handleCreateClub} />
